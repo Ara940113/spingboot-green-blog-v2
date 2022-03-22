@@ -17,7 +17,9 @@ public class UserService {
     @Transactional
     public void 회원가입(JoinDto joinDto) {
         // save하면 db에 insert하고 insert된 결과를 다시 return해준다
+
         userRepository.save(joinDto.toEntity());
-    } // 응답을 해줘야 되면 user 안해도 되면 void
+
+    }
 
 }
