@@ -1,0 +1,47 @@
+[33mcommit 90ae0a4f2ad554e546591786c26e4a4e66dc2bdd[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: AR <aki1013@naver.com>
+Date:   Wed Mar 23 23:45:14 2022 +0900
+
+    8.쿠키로 유저네임 기억하기
+
+[33mcommit 6c4a0abeec00e95ca50411d7a4f1002b6a0b73f7[m
+Author: AR <aki1013@naver.com>
+Date:   Tue Mar 22 17:00:03 2022 +0900
+
+    7. 로그인 완료, 오류수정
+
+[33mcommit 1bc13dc194b5400e2bb49c10562427d2f249578b[m
+Author: AR <aki1013@naver.com>
+Date:   Tue Mar 22 14:30:38 2022 +0900
+
+    6. 글로벌 익셉션 처리완료
+
+[33mcommit 4d7940d8784d27fe5ea62243a4522c82e769122c[m
+Author: AR <aki1013@naver.com>
+Date:   Tue Mar 22 12:35:04 2022 +0900
+
+    5. 회원가입 완료
+
+[33mcommit 46f6b0c4088b86f5ae5907717b87e4a38503fe39[m
+Author: AR <aki1013@naver.com>
+Date:   Mon Mar 21 17:45:59 2022 +0900
+
+    4. Repository, Service, Controller, ApiController 구현완료
+
+[33mcommit df207ccf1ec11ebbe398ceab412a7ba23073d546[m
+Author: AR <aki1013@naver.com>
+Date:   Mon Mar 21 16:42:32 2022 +0900
+
+    3. Entity User, Post 생성 완료
+
+[33mcommit 3f19552554c145f4176d7d25d0978e98cdd01a29[m
+Author: AR <aki1013@naver.com>
+Date:   Mon Mar 21 13:53:27 2022 +0900
+
+    2. 컨트롤러 페이지 작동 테스트
+
+[33mcommit 25f990ebe644be2006403ef7d1171f20440059d7[m
+Author: AR <aki1013@naver.com>
+Date:   Fri Mar 18 15:43:51 2022 +0900
+
+    1.프로젝트 세팅 VIEW 완료
