@@ -3,7 +3,10 @@ package site.metacoding.blogv2.web.api;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +16,7 @@ import site.metacoding.blogv2.service.UserService;
 import site.metacoding.blogv2.web.api.dto.ResponseDto;
 import site.metacoding.blogv2.web.api.dto.user.JoinDto;
 import site.metacoding.blogv2.web.api.dto.user.LoginDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import site.metacoding.blogv2.web.api.dto.user.UpdateDto;
 
 // ApiController 는 제이슨 리턴 전용 컨트롤러이다.
 
@@ -24,6 +26,20 @@ public class UserApiController {
 
     private final UserService userService;
     private final HttpSession session;
+
+    // password, email, addr
+    @PutMapping("/s/api/user/{id}")
+    public ResponseDto<?> update(@PathVariable Integer id, @RequestBody UpdateDto updateDto) {
+        userService.회원수정(id, updateDto);
+        return new ResponseDto<>(1, "성공", null);
+    }
+
+    // 이것도 있어야 나중에 앱에서 상세보기 할 수 있다. (우리 웹 브라우저에서는 사용 안하지만 추후 앱 요청시 사용 예정)
+    @GetMapping("s/api/user/{id}")
+    public ResponseDto<?> userInfo(@PathVariable Integer id) {
+        User userEntity = userService.회원정보(id);
+        return new ResponseDto<>(1, "성공", userEntity);
+    }
 
     // 회원가입 페이지 주세요, 회원가입 할게요 , 로그인 페이지 주세요, 로그인 할게요 - 인증프로세서
     // 로그아웃 할게요 -인증 프로세서
