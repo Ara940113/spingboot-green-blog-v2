@@ -25,21 +25,29 @@ public class UserApiController {
     private final UserService userService;
     private final HttpSession session;
 
+    // 회원가입 페이지 주세요, 회원가입 할게요 , 로그인 페이지 주세요, 로그인 할게요 - 인증프로세서
+    // 로그아웃 할게요 -인증 프로세서
+    @GetMapping("/logout") // api는 인증프로세서엔 붙이지 말자
+    public ResponseDto<?> logout() {
+        session.invalidate();
+        return new ResponseDto<>(1, "성공", null);
+    }
+
     // 회원가입
     @PostMapping("/join")
-    public ResponseDto<String> join(@RequestBody JoinDto joinDto) {
+    public ResponseDto<?> join(@RequestBody JoinDto joinDto) {
         // System.out.println(joinDto);
         userService.회원가입(joinDto);
-        return new ResponseDto<String>(1, "회원가입성공", null);
+        return new ResponseDto<>(1, "회원가입성공", null);
     }
 
     // 로그인
     @PostMapping("/login")
-    public ResponseDto<String> login(@RequestBody LoginDto loginDto, HttpServletResponse response) {
+    public ResponseDto<?> login(@RequestBody LoginDto loginDto, HttpServletResponse response) {
         User userEntity = userService.로그인(loginDto);
 
         if (userEntity == null) {
-            return new ResponseDto<String>(-1, "로그인실패", null);
+            return new ResponseDto<>(-1, "로그인실패", null);
         }
 
         // 쿠키 로직
