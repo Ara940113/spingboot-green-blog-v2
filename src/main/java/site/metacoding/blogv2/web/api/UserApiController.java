@@ -1,5 +1,6 @@
 package site.metacoding.blogv2.web.api;
 
+import javax.management.RuntimeErrorException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +31,13 @@ public class UserApiController {
     // password, email, addr
     @PutMapping("/s/api/user/{id}")
     public ResponseDto<?> update(@PathVariable Integer id, @RequestBody UpdateDto updateDto) {
+
+        // 세션의 아이디와 {id}를 비교
+        User principal = (User) session.getAttribute("principal");
+        if (principal.getId() != id) {
+            throw new RuntimeException("권한이 없습니다");
+        }
+
         User userEntity = userService.회원수정(id, updateDto);
         session.setAttribute("princiipal", userEntity);
         return new ResponseDto<>(1, "성공", null);
