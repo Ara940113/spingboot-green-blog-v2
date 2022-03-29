@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // PK 설정
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 번호증가 전략 적용하기
     private Integer id;
 
     @Column(unique = true, nullable = false, length = 12)
@@ -34,19 +34,18 @@ public class User {
     @Column(nullable = false, length = 12)
     private String password;
 
-    @Column(unique = true, nullable = false, length = 30)
+    @Column(nullable = false, length = 30)
     private String email;
 
-    @Column(unique = true, nullable = false, length = 300)
+    @Column(nullable = false, length = 300)
     private String addr; // API 주소 라이브러리 사용할 예정
 
     @Column(nullable = true, length = 300)
-    private String profileImg; // 이미지 파일 전송 받아서 서버에 두고, 그 경로를 디비에 저장
+    private String profileImg; // 이미지 파일 전송 받아서 서버에 두고 그 경로를 디비에 저장
 
-    @CreatedDate
+    @CreatedDate // insert
     private LocalDateTime createDate;
-
-    @LastModifiedDate
+    @LastModifiedDate // insert, update
     private LocalDateTime updateDate;
 
 }

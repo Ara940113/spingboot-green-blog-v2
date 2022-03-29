@@ -24,6 +24,7 @@ public class SessionIntercepter implements HandlerInterceptor {
         } else {
             return true;
         }
+
     }
 
 }
