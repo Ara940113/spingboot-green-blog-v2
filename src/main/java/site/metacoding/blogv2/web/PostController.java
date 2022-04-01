@@ -8,7 +8,7 @@ import site.metacoding.blogv2.service.PostService;
 
 @RequiredArgsConstructor
 @Controller
-public class PostController {
+public class PostController { // 껍데기 디자인 용도 데이터는 apicon~
     private final PostService postService;
 
     // 페이지를 줘
